@@ -1,2 +1,2 @@
-# wp-radios-directory
+# WP Radios Directory
 Radios list for wordpress
