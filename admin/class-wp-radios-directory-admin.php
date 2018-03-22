@@ -106,7 +106,7 @@ class Wp_Radios_Directory_Admin {
 			'label'                 => __( 'Radio', 'wp-radios-directory' ),
 			'description'           => __( 'Radios List', 'wp-radios-directory' ),
 			'labels'                => $labels,
-			'supports'              => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+			'supports'              => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions' ),
 			'taxonomies'            => array( 'radios-type', 'post_tag' ),
 			'hierarchical'          => false,
 			'public'                => true,

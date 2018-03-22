@@ -104,6 +104,11 @@ class Wp_Radios_Directory {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-radios-directory-admin.php';
 
 		/**
+		 * The class responsible for manage metaboxes for admin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-radios-directory-metabox.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
@@ -140,11 +145,15 @@ class Wp_Radios_Directory {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Wp_Radios_Directory_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_metabox = new Wp_Radios_Directory_Metabox();
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_admin, 'radios_dir_post_type' );
 		$this->loader->add_action( 'init', $plugin_admin, 'radio_dir_taxonomy' );
+
+		$this->loader->add_action( 'add_meta_boxes', $plugin_metabox, 'add_meta_boxes' );
+		$this->loader->add_action( 'save_post', $plugin_metabox, 'save_fields' );
 	}
 
 	/**
