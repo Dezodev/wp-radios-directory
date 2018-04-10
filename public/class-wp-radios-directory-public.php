@@ -51,7 +51,8 @@ class Wp_Radios_Directory_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-radios-directory-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . '/css/wp-radios-directory-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name.'-plyr-player', 'https://cdnjs.cloudflare.com/ajax/libs/plyr/3.1.0/plyr.css', array(), null, 'all' );
 
 	}
 
@@ -62,8 +63,24 @@ class Wp_Radios_Directory_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-radios-directory-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . '/js/wp-radios-directory-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name.'-plyr-player', 'https://cdnjs.cloudflare.com/ajax/libs/plyr/3.1.0/plyr.min.js', array( 'jquery' ), null, false );
 
+	}
+
+	/**
+	 * load the theme file for the playlist and show post types
+	 *
+	 * @since    0.0.1
+	 */
+	public function get_radios_template($single_template) {
+		global $post;
+
+		if ($post->post_type == 'radios') {
+			$single_template = plugin_dir_path(dirname(__FILE__)) . '/templates/single-radios.php';
+		}
+
+		return $single_template;
 	}
 
 }

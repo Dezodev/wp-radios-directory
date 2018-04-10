@@ -1,4 +1,4 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+
+body.single-radios .wp-post-image { padding: 10px; }
+body.single-radios .plyr { margin-bottom: 10px; }
+body.single-radios .plyr--audio .plyr__controls { background-color: #f5f5f5; }

@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       WP Radios Directory
  * Plugin URI:        https://github.com/Dezodev/wp-radios-directory
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       This plugin let you create a radios directory with link and description.
  * Version:           0.0.1
  * Author:            Dezodev
  * Author URI:        http://dezodev.tk

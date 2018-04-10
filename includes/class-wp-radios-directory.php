@@ -154,6 +154,7 @@ class Wp_Radios_Directory {
 
 		$this->loader->add_action( 'add_meta_boxes', $plugin_metabox, 'add_meta_boxes' );
 		$this->loader->add_action( 'save_post', $plugin_metabox, 'save_fields' );
+
 	}
 
 	/**
@@ -169,6 +170,7 @@ class Wp_Radios_Directory {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'single_template', $plugin_public, 'get_radios_template' );
 
 	}
 
