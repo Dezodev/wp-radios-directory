@@ -69,6 +69,16 @@ class Wp_Radios_Directory {
 	}
 
 	/**
+	 * Initialize plugin
+	 *
+	 * @return void
+	 * @since 0.0.1
+	 */
+	public function init() {
+		add_image_size('radios-dir-thumbs', 250, 250);
+	}
+
+	/**
 	 * Load the required dependencies for this plugin.
 	 *
 	 * Include the following files that make up the plugin:
@@ -155,6 +165,7 @@ class Wp_Radios_Directory {
 		$this->loader->add_action( 'add_meta_boxes', $plugin_metabox, 'add_meta_boxes' );
 		$this->loader->add_action( 'save_post', $plugin_metabox, 'save_fields' );
 
+		$this->loader->add_action( 'init', $this, 'init' );
 	}
 
 	/**

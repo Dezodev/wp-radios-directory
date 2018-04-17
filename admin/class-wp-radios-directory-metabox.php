@@ -46,6 +46,21 @@ class Wp_Radios_Directory_Metabox {
 				'id' => 'radio-main-stream',
 				'type' => 'text',
 			),
+			array(
+				'label' => 'Facebook page url',
+				'id' => 'radio-facebook',
+				'type' => 'text',
+			),
+			array(
+				'label' => 'Twitter page url',
+				'id' => 'radio-twitter',
+				'type' => 'text',
+			),
+			array(
+				'label' => 'Flux url',
+				'id' => 'radio-flux-url',
+				'type' => 'textarea',
+			),
 		);
 	}
 
@@ -93,6 +108,14 @@ class Wp_Radios_Directory_Metabox {
 			if ( empty( $meta_value ) ) $meta_value = $meta_field['default'];
 
 			switch ( $meta_field['type'] ) {
+				case 'textarea':
+					$input = sprintf(
+						'<textarea style="width: 100%%" id="%s" name="%s" rows="5">%s</textarea>',
+						$meta_field['id'],
+						$meta_field['id'],
+						$meta_value
+					);
+					break;
 				default:
 					$input = sprintf(
 						'<input %s id="%s" name="%s" type="%s" value="%s">',
@@ -102,6 +125,10 @@ class Wp_Radios_Directory_Metabox {
 						$meta_field['type'],
 						$meta_value
 					);
+			}
+
+			if ($meta_field['id'] == 'radio-flux-url') {
+				$input .= '<ul class="dezo-list-instruction"><li>One per line</li><li>Format : Name, url</li><li>Exemple: 64kbps, http://127.0.0.1/live.mp3</li></ul>';
 			}
 			$output .= $this->format_rows( $label, $input );
 		}

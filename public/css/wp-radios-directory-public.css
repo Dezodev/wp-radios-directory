@@ -1,4 +1,6 @@
-
-body.single-radios .wp-post-image { padding: 10px; }
-body.single-radios .plyr { margin-bottom: 10px; }
-body.single-radios .plyr--audio .plyr__controls { background-color: #f5f5f5; }
+body.single-radios .wp-post-image {
+  padding: 10px;
+}
+body.single-radios .wp-audio-shortcode {
+  margin-bottom: 1rem;
+}

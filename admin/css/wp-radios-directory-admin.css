@@ -1,4 +1,7 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+ul.dezo-list-instruction {
+  color: #757575;
+}
+ul.dezo-list-instruction li {
+  font-style: italic;
+  margin-bottom: 0;
+}

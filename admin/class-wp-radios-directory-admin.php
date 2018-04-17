@@ -137,7 +137,7 @@ class Wp_Radios_Directory_Admin {
 		$labels = array(
 			'name'                       => _x( 'Genres', 'Taxonomy General Name', 'wp-radios-directory' ),
 			'singular_name'              => _x( 'Genre', 'Taxonomy Singular Name', 'wp-radios-directory' ),
-			'menu_name'                  => __( 'Genre', 'wp-radios-directory' ),
+			'menu_name'                  => __( 'Genres', 'wp-radios-directory' ),
 			'all_items'                  => __( 'All Genres', 'wp-radios-directory' ),
 			'parent_item'                => __( 'Parent Genre', 'wp-radios-directory' ),
 			'parent_item_colon'          => __( 'Parent Genre:', 'wp-radios-directory' ),

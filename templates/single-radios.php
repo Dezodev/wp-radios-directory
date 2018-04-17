@@ -23,20 +23,41 @@ if (have_posts()): while (have_posts()) : the_post();
 
  					<h1 class="post-title"><?php the_title(); ?></h1>
 
-                    <audio class="plyr-simple-radio" src="<?php echo esc_url($meta['radio-main-stream'][0]) ?>" controls preload> </audio>
+                    <?php echo wp_audio_shortcode([
+                        src => $meta['radio-main-stream'][0],
+                        autoplay => true,
+                        preload => 'auto'
+                    ]); ?>
 
-                    <h2>Description</h2>
+                    <div id="radios-meta">
+                        <div class="radios-description">
+                            <h2>Description</h2>
+                            <?php the_content(); ?>
+                        </div>
+                        <div class="radios-informations">
+                            <h2>Informations</h2>
 
- 					<?php the_content(); ?>
+                            <ul class="list-unstyled">
+                                <?php if (!empty($meta['radio-website'][0])): ?>
+                                    <li><i class="fa fa-globe"></i> <b>Site web :</b>
+                                        <span><?php echo '<a href="'.esc_url($meta['radio-website'][0]).'" title="'.get_the_title().'" target="_blank">'.esc_url($meta['radio-website'][0]).'</a>'; ?></span>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (!empty($meta['radio-facebook'][0])): ?>
+                                    <li><i class="fa fa-facebook-square"></i> <b>Facebook :</b>
+                                        <span><?php echo '<a href="'.esc_url($meta['radio-facebook'][0]).'" title="'.get_the_title().'" target="_blank">'.esc_url($meta['radio-facebook'][0]).'</a>'; ?></span>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if (!empty($meta['radio-facebook'][0])): ?>
+                                    <li><i class="fa fa-twitter-square"></i> <b>Twitter :</b>
+                                        <span><?php echo '<a href="'.esc_url($meta['radio-twitter'][0]).'" title="'.get_the_title().'" target="_blank">'.esc_url($meta['radio-twitter'][0]).'</a>'; ?></span>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </div>
 
-                    <h2>Informations</h2>
-
-                    <p>
-                        <b>Site web :</b>
-                        <span><?php echo '<a href="'.esc_url($meta['radio-website'][0]).'" title="'.get_the_title().'" target="_blank">'.esc_url($meta['radio-website'][0]).'</a>'; ?></span>
-                    </p>
-
- 					<br class="clear">
+					<br class="clear">
 
  					<?php edit_post_link(null, null, null, null, 'btn btn-sm btn-light'); ?>
 
